@@ -1,7 +1,13 @@
 Paisly::Application.routes.draw do
-  resources :users
 
-  resources :companies
+  get 'features', controller: 'home_page', action: 'features'
+  get 'pricing', controller: 'home_page', action: 'pricing'
+  get 'privacy_policy', controller: 'home_page', action: 'privacy_policy'
+  get 'terms', controller: 'home_page', action: 'terms'
+
+  resources :companies do
+    resources :users
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -52,7 +58,7 @@ Paisly::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'home_page#index'
 
   # See how all your routes lay out with "rake routes"
 

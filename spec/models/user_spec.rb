@@ -64,6 +64,25 @@ describe User do
     it { should_not be_valid }
   end
 
+  describe 'when email is not unique' do
+    before do
+      user_with_same_email = @user.dup
+      user_with_same_email.email = @user.email.downcase
+      user_with_same_email.save
+    end
+
+    it { should_not be_valid }
+  end
+
+  describe 'when email is mixed case' do
+    let(:mixed_case_email) { 'ExampLe@doMain.cOm' }
+    it 'it should be saved as lowercase' do
+      @user.email = mixed_case_email
+      @user.save
+      @user.reload.email.should == mixed_case_email.downcase
+    end
+  end
+
   describe 'when password is blank' do
     before { @user.password = '' }
     it { should_not be_valid }

@@ -25,6 +25,6 @@ Information needed from the customer for sign up.
 
 * Company Name
 * Company Code - this is generated automatically by Paisly
-* Customer's first and last name
+* Customer's first at last name
 * Customer's email
 * Customer's password

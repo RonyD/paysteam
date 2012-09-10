@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Paisly</title>
+  <title>Paisly :: Wages made easy</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<%= render "layouts/navigation" %>
+
+<div class="container">
+  <%= yield %>
+  <%= render "layouts/footer" %>
+</div>
 
 </body>
 </html>
