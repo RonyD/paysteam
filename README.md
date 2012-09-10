@@ -11,3 +11,4 @@ Company
 * Tax Tables
 * Social Security Fund
 * Accounting
+* Notifications
