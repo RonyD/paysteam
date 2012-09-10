@@ -2,10 +2,18 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+group :development, :test do
+  gem 'rspec-rails', '2.11.0'
+  gem 'sqlite3'
+end
 
-gem 'sqlite3'
+group :production do
+  gem 'pg'
+end
+
+group :test do
+  gem 'capybara', '1.1.2'
+end
 
 
 # Gems used only for assets and not required
