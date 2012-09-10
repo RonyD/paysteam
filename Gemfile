@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 
+gem 'bcrypt-ruby', require: 'bcrypt'
+
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
   gem 'sqlite3'

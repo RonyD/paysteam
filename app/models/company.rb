@@ -12,6 +12,11 @@
 class Company < ActiveRecord::Base
 
   #
+  # Associations
+  #
+  has_many :users
+
+  #
   # Attirbutes
   #
   attr_accessible :code, :name
