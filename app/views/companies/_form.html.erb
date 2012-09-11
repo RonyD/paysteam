@@ -1,8 +1,6 @@
 <%= form_for(@company) do |f| %>
   <% if @company.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
-
+    <div class="alert alert-error">
       <ul>
       <% @company.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -11,15 +9,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
+  <div class="control-group">
+    <%= f.label :name, 'Company Name', class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :name, 'First Name', class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="control-group">
+    <%= f.label :name, 'Last Name', class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :name, 'Email', class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :name, 'Password', class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit 'Sign Up', class: "btn btn-success btn-large" %>
   </div>
 <% end %>

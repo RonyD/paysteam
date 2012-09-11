@@ -1,0 +1,23 @@
+<h1>Listing workgroups</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @workgroups.each do |workgroup| %>
+  <tr>
+    <td><%= workgroup.name %></td>
+    <td><%= link_to 'Show', workgroup %></td>
+    <td><%= link_to 'Edit', edit_workgroup_path(workgroup) %></td>
+    <td><%= link_to 'Destroy', workgroup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Workgroup', new_workgroup_path %>

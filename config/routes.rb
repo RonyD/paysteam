@@ -1,5 +1,10 @@
 Paisly::Application.routes.draw do
 
+  resources :workgroups
+
+  get 'sign_up', controller: 'sign_up', action: 'index'
+  post 'sign_up', controller: 'sign_up', action: 'create'
+
   get 'features', controller: 'home_page', action: 'features'
   get 'pricing', controller: 'home_page', action: 'pricing'
   get 'privacy_policy', controller: 'home_page', action: 'privacy_policy'

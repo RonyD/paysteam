@@ -10,6 +10,7 @@
 #
 
 require 'spec_helper'
+require 'digest/md5'
 
 describe Company do
   
@@ -22,19 +23,12 @@ describe Company do
 
   it { should be_valid }
 
-  describe 'when code is blank' do
-    before { @company.code = '' }
-    it { should_not be_valid }
-  end
-
-  describe 'when code is not unique' do
-    before do
-      company_with_same_code = @company.dup
-      company_with_same_code.code = @company.code.upcase
-      company_with_same_code.save
+  describe 'before save code is hashed' do
+    it "should be valid" do
+      @company.save
+      @company.code.should_not be_empty
+      @company.code.should == Digest::MD5.hexdigest(@company.name)
     end
-
-    it { should_not be_valid }
   end
 
   describe 'when name is blank' do
