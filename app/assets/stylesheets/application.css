@@ -16,9 +16,10 @@
 body {
   /*font-family: 'Open Sans', Helvetica, sans-serif !important;*/
   /*text-smoothing: anitaliased;*/
+  padding-top: 60px;
 }
 
- #featured h1 {
+#featured h1 {
   width: 350px;
  }
 
@@ -26,8 +27,4 @@ body {
   border-top: 1px solid #eee;
   margin-top: 30px;
   padding-top: 30px;
-}
-
-#nav {
-  margin-bottom: 30px;
 }
