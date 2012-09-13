@@ -1,22 +1,33 @@
-<div id="nav" class="navbar navbar-static-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <%= link_to 'PayStream', root_path, class: 'brand' %>
-      <ul class="nav">
-        <li><%= link_to 'Features', features_path %></li>
-        <li><%= link_to 'Pricing', pricing_path %></li>
-        <li><a href="#" title="Blog">Blog</a></li>
-        <li><a href="#" title="Support">Support</a></li>
-      </ul>
-      <ul class="nav pull-right">
-        <li>
-          <% if current_user %>
-            <%= link_to 'Sign Out', logout_path %>
-          <% else %>
-            <%= link_to 'Login', login_path %>
-          <% end %>
-        </li>
-      </ul>
+<% if current_user %>
+  <div id="nav" class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <%= link_to 'PayStream', dashboard_path, class: 'brand' %>
+        <ul class="nav">
+          <li><%= link_to 'Workgroups', company_workgroups_path(current_company) %></li>
+          <li><%#= link_to 'Employees', company_employees_path(current_company) %></li>
+        </ul>
+        <ul class="nav pull-right">
+          <li><%= link_to 'Logout', logout_path %></li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+<% else %>
+  <div id="nav" class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <%= link_to 'PayStream', root_path, class: 'brand' %>
+        <ul class="nav">
+          <li><%= link_to 'Features', features_path %></li>
+          <li><%= link_to 'Pricing', pricing_path %></li>
+          <li><a href="#" title="Blog">Blog</a></li>
+          <li><a href="#" title="Support">Support</a></li>
+        </ul>
+        <ul class="nav pull-right">
+          <li><%= link_to 'Login', login_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>

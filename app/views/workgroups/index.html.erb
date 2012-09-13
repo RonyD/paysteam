@@ -1,23 +1,24 @@
-<h1>Listing workgroups</h1>
+<h1>Workgroups <span class="pull-right"><%= link_to 'New Workgroup', new_company_workgroup_path, class: 'btn btn-success' %></span></h1>
 
-<table>
+<hr />
+
+<table class="table table-striped">
+  <thead>
   <tr>
     <th>Name</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+  </thead>
+  <tbody>
 <% @workgroups.each do |workgroup| %>
   <tr>
     <td><%= workgroup.name %></td>
-    <td><%= link_to 'Show', workgroup %></td>
-    <td><%= link_to 'Edit', edit_workgroup_path(workgroup) %></td>
-    <td><%= link_to 'Destroy', workgroup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', company_workgroup_path(current_company, workgroup) %></td>
+    <td><%= link_to 'Edit', edit_company_workgroup_path(current_company, workgroup) %></td>
+    <td><%= link_to 'Destroy', company_workgroup_path(current_company, workgroup), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
+  </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Workgroup', new_workgroup_path %>
