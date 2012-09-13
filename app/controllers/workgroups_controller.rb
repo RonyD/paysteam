@@ -2,7 +2,7 @@ class WorkgroupsController < ApplicationController
   # GET /workgroups
   # GET /workgroups.json
   def index
-    @workgroups = Workgroup.all
+    @workgroups = current_company.workgroups
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,11 +40,11 @@ class WorkgroupsController < ApplicationController
   # POST /workgroups
   # POST /workgroups.json
   def create
-    @workgroup = Workgroup.new(params[:workgroup])
+    @workgroup = current_company.workgroups.build(params[:workgroup])
 
     respond_to do |format|
       if @workgroup.save
-        format.html { redirect_to @workgroup, notice: 'Workgroup was successfully created.' }
+        format.html { redirect_to company_workgroup_url(current_company, @workgroup), notice: 'Workgroup was successfully created.' }
         format.json { render json: @workgroup, status: :created, location: @workgroup }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class WorkgroupsController < ApplicationController
 
     respond_to do |format|
       if @workgroup.update_attributes(params[:workgroup])
-        format.html { redirect_to @workgroup, notice: 'Workgroup was successfully updated.' }
+        format.html { redirect_to company_workgroup_url(current_company, @workgroup), notice: 'Workgroup was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
