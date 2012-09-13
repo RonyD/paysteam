@@ -1,18 +1,18 @@
 class SignUpController < ApplicationController
 
-  def index
+  def new
     @company = Company.new
+
+    user = @company.users.build
   end
 
   def create
-     @company = Company.new(name: params[:company_name])
+     @company = Company.new(params[:company])
 
-     @company.user = 
-
-    if @company.valid? 
-      @company.save
+    if @company.save
+      redirect_to dashboard_url
     else
-      render :index
+      render :new 
     end
   end
 end

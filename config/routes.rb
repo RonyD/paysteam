@@ -1,8 +1,10 @@
 Paisly::Application.routes.draw do
 
-  resources :workgroups
+  get 'login', controller: 'sessions', action: 'new'
+  post 'login', controller: 'sessions', action: 'create'
+  get 'logout', controller: 'sessions', action: 'destroy'
 
-  get 'sign_up', controller: 'sign_up', action: 'index'
+  get 'sign_up', controller: 'sign_up', action: 'new'
   post 'sign_up', controller: 'sign_up', action: 'create'
 
   get 'features', controller: 'home_page', action: 'features'
@@ -10,7 +12,10 @@ Paisly::Application.routes.draw do
   get 'privacy_policy', controller: 'home_page', action: 'privacy_policy'
   get 'terms', controller: 'home_page', action: 'terms'
 
+  get 'dashboard', controller: 'dashboard', action: 'index'
+
   resources :companies do
+    resources :workgroups
     resources :users
   end
 
