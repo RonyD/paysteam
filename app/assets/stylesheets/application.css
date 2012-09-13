@@ -11,6 +11,12 @@
  *= require_self
  *= require_tree .
  */
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);*/
+
+body {
+  /*font-family: 'Open Sans', Helvetica, sans-serif !important;*/
+  /*text-smoothing: anitaliased;*/
+}
 
  #featured h1 {
   width: 350px;
